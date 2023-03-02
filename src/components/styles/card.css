@@ -1,3 +1,22 @@
+.div-res-product-card {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.product-card {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 240px;
+    margin-bottom: 20px;
+}
+
+.col-product-card {
+    margin-top: 30xp;
+}
+
+.img-product-card {
+    width: 240px;
+    height: 240px;
+}
+
 .fr-product-grid.row .fr-product-card.default .info .description {
     margin-top: 0px;
     font-size: 18px;
