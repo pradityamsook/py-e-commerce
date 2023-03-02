@@ -5,6 +5,8 @@ import type { FC } from 'react';
 import { useState } from 'react';
 import { Menu } from 'antd';
 
+import './styles/header.css';
+
 const items: MenuProps['items'] = [
     {
         label: 'Home',
@@ -26,7 +28,13 @@ const AppHeader: FC = () => {
     };
 
     return (
-        <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ fontSize: "30px", marginTop: "20px" }} />
+        <Menu
+            onClick={onClick}
+            selectedKeys={[current]}
+            mode="horizontal"
+            items={items}
+            className={'menu-on-top'}
+        />
     );
 };
 
