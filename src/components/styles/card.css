@@ -1,0 +1,21 @@
+.fr-product-grid.row .fr-product-card.default .info .description {
+    margin-top: 0px;
+    font-size: 18px;
+    letter-spacing: 0.35px;
+    line-height: 21px;
+}
+
+.product-price-info {
+    font-size: 30px;
+    letter-spacing: 0.5px;
+    line-height: 26px;
+    color:darkslategray;
+    background-color: aliceblue;
+}
+
+.price-currnecy {
+    align-items: baseline;
+    color: inherit;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
