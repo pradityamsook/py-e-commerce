@@ -1,4 +1,4 @@
-import { useRecoilState, atom, useRecoilValue } from 'recoil';
+// import { useRecoilState, atom, useRecoilValue } from 'recoil';
 import { AppstoreOutlined, MailOutlined, SettingOutlined, HomeOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import type { FC } from 'react';
@@ -9,12 +9,12 @@ const items: MenuProps['items'] = [
     {
         label: 'Home',
         key: 'home',
-        icon: <HomeOutlined style={{ fontSize: "30px"}} />
+        icon: <HomeOutlined style={{ fontSize: 30 }} />
     },
     {
         label: 'App Store',
         key: 'appStore',
-        icon: <AppstoreOutlined style={{fontSize: "30px"}} />
+        icon: <AppstoreOutlined style={{ fontSize: 30 }} />
     }
 ];
 
@@ -26,7 +26,7 @@ const AppHeader: FC = () => {
     };
 
     return (
-        <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ fontSize: "30px", marginTop: "20px"}} />
+        <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ fontSize: "30px", marginTop: "20px" }} />
     );
 };
 
