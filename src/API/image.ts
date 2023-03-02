@@ -1,23 +1,21 @@
 import axios from 'axios';
+import { imageCard, imageCardState } from '../state/recoil_state';
+import { useRecoilState } from 'recoil';
 
 
-export type image = {
-    author: string;
-    url: string;
-}
+// export async function getImage(URL:string): Promise<imageCard[]> {
+//     const [image, setImage] = useRecoilState(imageCardState);
+//     const storeImage: imageCard[] = [];
+//     await axios.get(URL).then(response => {
+//         response.data.forEach((element: { author: any; url: any; }) => {
+//             storeImage.push({
+//                 author: element.author,
+//                 url: element.url
+//             })
+//         });
+//         setImage(storeImage);
+//     });
+//     console.log(image);
 
-export async function imageCard(URL:string): Promise<image[]> {
-    const res = await axios.get(URL);
-    const data = await res.data;
-    const setImageData: image[] = [];
-    
-    for (const val of data) {
-        setImageData.push({
-            author: val.author,
-            url: val.download_url
-        })
-    }
-
-    return setImageData as image[];
-    
-}
+//     return image as imageCard[];
+// }
