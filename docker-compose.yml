@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04
+    environment:
+      MSSQL_SA_PASSWORD: "YourStrongPassw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1443:1443"
