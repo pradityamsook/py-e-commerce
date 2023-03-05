@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { FC } from 'react';
-import { Button } from 'antd';
-import AppHeader from './components/header';
 import CardProducts from './components/card';
+
 import 'antd/dist/reset.css';
 import './App.css';
 
-const buttonApp: FC = () => (
-  <div className='App'>
-    <AppHeader />
-    <body>
-      <div style={{ marginTop: 50 }}>
+
+
+const Home: FC = () => {
+  const [tab, setTab] = useState<string>("home");
+
+  return (
+    <div className='App'>
+      <div className={"App-card"}>
         <CardProducts />
       </div>
-    </body>
-  </div>
-)
+    </div>
+  )
+}
 
-export default buttonApp;
+export default Home;

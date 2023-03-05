@@ -1,42 +1,40 @@
-// import { useRecoilState, atom, useRecoilValue } from 'recoil';
-import { AppstoreOutlined, MailOutlined, SettingOutlined, HomeOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import type { FC } from 'react';
-import { useState } from 'react';
-import { Menu } from 'antd';
+import { Button, Tabs, TabsProps } from 'antd';
+import { NavLink, useNavigate } from 'react-router-dom';
+import "./styles/header.css"
 
-import './styles/header.css';
 
-const items: MenuProps['items'] = [
+const items: TabsProps['items'] = [
     {
-        label: 'Home',
-        key: 'home',
-        icon: <HomeOutlined style={{ fontSize: 30 }} />
+        label: "Home",
+        key: "/",
     },
     {
-        label: 'App Store',
-        key: 'appStore',
-        icon: <AppstoreOutlined style={{ fontSize: 30 }} />
+        label: "Products",
+        key: "products",
     }
-];
+]
 
+const AppHeader = () => {
 
-const AppHeader: FC = () => {
-    const [current, setCurrent] = useState('home');
-    const onClick: MenuProps['onClick'] = (e) => {
-        setCurrent(e.key);
-    };
+    const navigate = useNavigate();
+
+    const handleChange = (v: string) => {
+        navigate(v);
+    }
+
+    const operations = <Button onClick={() => navigate('/login')}>Login</Button>;
 
     return (
-        <Menu
-            onClick={onClick}
-            selectedKeys={[current]}
-            mode="horizontal"
-            items={items}
-            className={'menu-on-top'}
-        />
+        <>
+            <Tabs tabBarExtraContent={operations} items={items}
+                onChange={(v) => handleChange(v)}
+            />
+            <nav className="nav-link">
+                <NavLink to="/" className="nav-link">Home</NavLink>
+                <NavLink to="/products" className="nav-link">Products</NavLink>
+            </nav>
+        </>
     );
 };
-
 
 export default AppHeader;

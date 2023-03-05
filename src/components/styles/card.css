@@ -1,6 +1,7 @@
 .div-res-product-card {
     max-width: 1300px;
     margin: 0 auto;
+    text-align: center;
 }
 .product-card {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -37,4 +38,21 @@
     color: inherit;
     display: inline-flex;
     flex-wrap: wrap;
+}
+
+.nav-click {
+    color: darkslategray;
+}
+
+.nav-click:hover {
+    color:rgba(0, 0, 0, 0.35);
+}
+
+
+.info {
+    color: darkslategray;
+}
+
+.info:hover {
+    color:rgba(0, 0, 0, 0.35)
 }
