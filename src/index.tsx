@@ -11,6 +11,7 @@ import LoginPage from './pages/login';
 import ProductDetail from './pages/product-detail';
 import HomePage from './pages/home';
 import CardProducts from './components/card';
+import { RecoilRoot } from 'recoil';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
         element: <CardProducts />,
       },
       {
-        path: "/products/:productName",
+        path: "/products/:productName/:index",
         element: <ProductDetail />
       }
     ]
@@ -43,7 +44,10 @@ const router = createBrowserRouter([
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RecoilRoot>
+      <RouterProvider router={router} />
+    </RecoilRoot>
+
   </React.StrictMode>
 );
 
