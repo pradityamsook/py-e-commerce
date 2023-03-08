@@ -5,8 +5,6 @@ import CardProducts from './components/card';
 import 'antd/dist/reset.css';
 import './App.css';
 
-
-
 const Home: FC = () => {
   const [tab, setTab] = useState<string>("home");
 
