@@ -10,7 +10,7 @@ export const imageCardState = atom({
     default: [] as imageCard[]
 });
 
-export const tabs = atom({
-    key: "tabs",
-    default: ''
+export const productState = atom({
+    key: "products",
+    default: []
 })
