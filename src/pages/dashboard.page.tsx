@@ -41,15 +41,16 @@ const DashboardPage: FC = (): any => {
 
     const onClickProduct = (productId: number) => {
         setProductId(productId);
-        navigate("/dashboard/edit_product");
+        navigate(`/dashboard/edit_product/${productId}`);
     }
     if (isLogged === null || isLogged === undefined || isLogged === "false") {
         return (<></>);
     }
+
     return (
         <div className='div-res-product-card'>
             <Divider orientation="left" style={{ textAlign: "left" }}>Product list</Divider>
-            {productList.map((product: any, index) => (
+            {productList && productList.length > 0 && productList.map((product: any, index) => (
                 <Row key={product.product_id} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{ marginTop: "2rem" }}>
                     <>
                         <Col style={{ textAlign: "center", paddingLeft: "1rem", alignItems: "center", paddingTop: "0.5rem   " }} span={12}>

@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         element: <DashboardPage />
       },
       {
-        path: "/dashboard/edit_product",
+        path: "/dashboard/edit_product/:id",
         element: <EditProductPage />
       }
     ]
