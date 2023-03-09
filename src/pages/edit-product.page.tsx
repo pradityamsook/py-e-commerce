@@ -9,7 +9,7 @@ const EditProductPage: FC = (): any => {
 
     return (
         <>
-            {EditProductComponent(productId)}
+            <EditProductComponent productId={productId} />
         </>
     );
 }

@@ -24,3 +24,8 @@ export const productIDState = atom({
     key: "productId",
     default: 0
 })
+
+export const productListState = atom({
+    key: "productList",
+    default: []
+})

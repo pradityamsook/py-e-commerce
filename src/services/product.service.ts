@@ -9,7 +9,17 @@ export const fetchProduct = async () => {
 }
 
 export const fetchProductById = async (productId: number) => {
-    return await mainAPI.put(API + 'product/${producId}')
+    return await mainAPI.get(API + 'product/?id=' + productId)
+        .then(res => res.data.result)
+        .catch(error => console.error(error));
+}
+
+export const updateProduct = async (payload: any) => {
+    return await mainAPI.put(API + 'product', payload, {
+        headers: {
+            'Content-Type': "multipart/form-data"
+        }
+    })
         .then(res => res.data.result)
         .catch(error => console.error(error));
 }

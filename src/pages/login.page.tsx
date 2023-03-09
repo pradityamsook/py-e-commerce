@@ -6,9 +6,7 @@ import { loggedState } from "../state/recoil_state";
 import { redirect, useNavigate } from "react-router-dom";
 
 
-const onFinish = (values: string) => {
-    console.log("success", values);
-}
+
 
 const onFinishFailed = (values: any) => {
     console.log("Failed", values)
@@ -21,12 +19,18 @@ const LoginPage: FC = (): any => {
 
     const navigate = useNavigate();
 
+    const onFinish = (values: any) => {
+        console.log("success", values);
+    }
+
     const handleSubmit = (event: any) => {
-        event.preventDefault();
-        if (username && password) {
-            setLogged(true)
+        let isLogged = false;
+
+        if (event.username && event.password) {
+            isLogged = true;
         }
-        if (logged === true) {
+        if (isLogged === true) {
+            localStorage.setItem("isLogged", `${isLogged}`);
             navigate("/dashboard");
         }
     }
@@ -37,31 +41,25 @@ const LoginPage: FC = (): any => {
                 <Col span={6} offset={6}>
                     <Form
                         name="complex-form"
-                        onSubmitCapture={handleSubmit}
+                        onFinish={handleSubmit}
                         initialValues={{ remember: true }}
                     >
                         <Form.Item
                             label="Username"
+                            name="username"
                             rules={[{ required: true, message: 'Please input your username!' }]}
                         >
-                            <Input
-                                type="text"
-                                value={username}
-                                onChange={(event) => setUsername(event.target.value)}
-                            />
+                            <Input />
                         </Form.Item>
                         <Form.Item
                             label="Password"
+                            name="password"
                             rules={[{
                                 required: true,
                                 message: "Please input your password"
                             }]}
                         >
-                            <Input.Password
-                                type="text"
-                                value={password}
-                                onChange={(event) => setPassword(event.target.value)}
-                            />
+                            <Input.Password />
                         </Form.Item>
                         <Form.Item name="remember" valuePropName="checked" style={{ paddingLeft: "5rem", textAlign: "center" }}>
                             <Checkbox>Remember me</Checkbox>
