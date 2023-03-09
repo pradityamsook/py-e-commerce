@@ -14,3 +14,13 @@ export const productState = atom({
     key: "products",
     default: []
 })
+
+export const loggedState = atom({
+    key: "login",
+    default: false
+})
+
+export const productIDState = atom({
+    key: "productId",
+    default: 0
+})
