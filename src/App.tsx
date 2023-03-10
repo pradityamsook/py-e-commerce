@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { FC } from 'react';
-import CardProducts from './components/card';
+import CardProducts from './components/card.componet';
 
 import 'antd/dist/reset.css';
 import './App.css';

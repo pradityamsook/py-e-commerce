@@ -31,7 +31,7 @@ const CardProducts: FC = () => {
     return (
         <div className='div-res-product-card'>
             <Row>
-                {products.map((product: any, index) => (
+                {products && products.length && products.map((product: any, index) => (
                     <Col
                         key={index}
                         xs={{ span: 24, offset: 0 }}

@@ -10,11 +10,12 @@ import MainLayout from './layouts/index.layout';
 import LoginPage from './pages/login.page';
 import ProductDetail from './pages/product-detail.page';
 import HomePage from './pages/home.page';
-import CardProducts from './components/card';
+import CardProducts from './components/card.componet';
 import { RecoilRoot } from 'recoil';
 import DashboardPage from './pages/dashboard.page';
 import ErrorPage from './pages/error.page';
 import EditProductPage from './pages/edit-product.page';
+import CreateProductPage from './pages/create-product.page';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/edit_product/:id",
         element: <EditProductPage />
+      },
+      {
+        path: "/dashboard/create_product",
+        element: <CreateProductPage />
       }
     ]
   },

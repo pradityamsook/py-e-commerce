@@ -23,3 +23,14 @@ export const updateProduct = async (payload: any) => {
         .then(res => res.data.result)
         .catch(error => console.error(error));
 }
+
+export const createProduct =async (payload: any) => {
+    return await mainAPI.post(API + 'product', payload, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
+    })
+    .then(res => res.data.result)
+    .catch(error => console.log(error));
+    
+}
