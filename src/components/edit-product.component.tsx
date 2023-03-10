@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import type { FC } from "react";
 import { fetchProductById, updateProduct } from "../services/product.service";
-import { Button, Form, Input, Select, Switch, Upload, UploadFile, UploadProps } from "antd";
+import { Alert, Button, Form, Input, Select, Switch, Upload, UploadFile, UploadProps } from "antd";
 import ImgCrop from "antd-img-crop";
 import { RcFile } from "antd/es/upload";
+import { Content } from "antd/es/layout/layout";
 
 type TEditProductComponent = {
     productId: number;
@@ -51,11 +52,11 @@ const EditProductComponent = ({ productId }: TEditProductComponent) => {
 
         updateProduct(values)
             .then((res) => {
-                alert("success");
+                
             })
             .catch((error) => {
                 console.log(error);
-            })
+            });
     };
 
     const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {
@@ -79,60 +80,62 @@ const EditProductComponent = ({ productId }: TEditProductComponent) => {
 
     return (
         <>
-            <ImgCrop rotate>
-                <Upload
-                    listType="picture-card"
-                    fileList={fileList}
-                    onChange={onChange}
-                // onPreview={onPreview}
+                <div style={{ padding: "0 0 0 12.5rem" }}>
+                    <ImgCrop rotate >
+                        <Upload
+                            listType="picture-card"
+                            fileList={fileList}
+                            onChange={onChange}
+                        // onPreview={onPreview}
+                        >
+                            {fileList.length < 1 && '+ Upload'}
+                        </Upload>
+                    </ImgCrop>
+                </div>
+                <Form
+                    {...layout}
+                    form={form}
+                    name="control-hooks"
+                    onFinish={onFinish}
+                    style={{ maxWidth: 600 }}
                 >
-                    {fileList.length < 1 && '+ Upload'}
-                </Upload>
-            </ImgCrop>
-            <Form
-                {...layout}
-                form={form}
-                name="control-hooks"
-                onFinish={onFinish}
-                style={{ maxWidth: 600 }}
-            >
-                <Form.Item name="name" label="Product name" rules={[{ required: true }]}>
-                    <Input />
-                </Form.Item>
-                <Form.Item name="price" label="Price" rules={[{ required: true }]}>
-                    <Input />
-                </Form.Item>
-                <Form.Item name="amount" label="Amount" rules={[{ required: true }]}>
-                    <Input />
-                </Form.Item>
-                <Form.Item name="product_id" style={{ display: "none" }} rules={[{ required: true }]}>
-                    <Input type="hidden" />
-                </Form.Item>
-                <Form.Item name="sale_active" valuePropName="checked">
-                    <Switch />
-                </Form.Item>
-                <Form.Item name="image_url" style={{ display: "none" }}>
-                    <Input type="hidden" />
-                </Form.Item>
-                <Form.Item
-                    noStyle
-                    shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
-                >
-                    {({ getFieldValue }) =>
-                        getFieldValue('gender') === 'other' ? (
-                            <Form.Item name="customizeGender" label="Customize Gender" rules={[{ required: true }]}>
-                                <Input />
-                            </Form.Item>
-                        ) : null
-                    }
-                </Form.Item>
+                    <Form.Item name="name" label="Product name" rules={[{ required: true }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item name="price" label="Price" rules={[{ required: true }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item name="amount" label="Amount" rules={[{ required: true }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item name="product_id" style={{ display: "none" }} rules={[{ required: true }]}>
+                        <Input type="hidden" />
+                    </Form.Item>
+                    <Form.Item name="sale_active" valuePropName="checked" style={{ padding: "0 0 0 12.5rem" }}>
+                        <Switch />
+                    </Form.Item>
+                    <Form.Item name="image_url" style={{ display: "none" }}>
+                        <Input type="hidden" />
+                    </Form.Item>
+                    <Form.Item
+                        noStyle
+                        shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
+                    >
+                        {({ getFieldValue }) =>
+                            getFieldValue('gender') === 'other' ? (
+                                <Form.Item name="customizeGender" label="Customize Gender" rules={[{ required: true }]}>
+                                    <Input />
+                                </Form.Item>
+                            ) : null
+                        }
+                    </Form.Item>
 
-                <Form.Item {...tailLayout}>
-                    <Button type="primary" htmlType="submit">
-                        Save
-                    </Button>
-                </Form.Item>
-            </Form>
+                    <Form.Item {...tailLayout}>
+                        <Button type="primary" htmlType="submit">
+                            Save
+                        </Button>
+                    </Form.Item>
+                </Form>
         </>
     );
 }
