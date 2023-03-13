@@ -44,7 +44,11 @@ const AppHeader = () => {
     const logClick = () => {
         if (!isLogged || isLogged === "false") {
            return (
-                <Button onClick={() => navigate('/login')}>Login</Button>
+                <Button onClick={() => navigate('/login')}
+                    className={"logged-layout"}
+                >
+                    Login
+                </Button>
            );
         }
 
@@ -55,13 +59,7 @@ const AppHeader = () => {
 
         return (
             <Button onClick={() => setIsLogged("false")}
-                style={{
-                    float: 'left',
-                    width: 80,
-                    height:40,
-                    margin: '14px 0px 0 178px',
-                    background: 'rgba(180, 180, 180, 1)',
-                }}
+                className={"logged-layout"}
             >
                 Logout
             </Button>
