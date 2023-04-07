@@ -10,9 +10,9 @@
 }
 
 .logged-layout {
-    float: 'left';
+    float: left;
     width: 80;
     height:40;
-    margin: '14px 0px 0 178px';
-    background: 'rgba(180, 180, 180, 1)';
+    margin: 14px 0px 0 178px;
+    background: rgba(180, 180, 180, 1);
 }

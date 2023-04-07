@@ -4,7 +4,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { loggedState } from '../state/recoil_state';
 import { useLocalStorage } from "usehooks-ts"
-import "./styles/header.css"
+import "./view/styles/header.css"
 import { Content, Footer, Header } from 'antd/es/layout/layout';
 
 

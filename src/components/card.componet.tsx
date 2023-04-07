@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { fetchProduct } from '../services/product.service';
 import { useRecoilState } from 'recoil';
 
-import './styles/card.css';
+import './view/styles/card.css';
 import { productState } from '../state/recoil_state';
 import { Content } from 'antd/es/layout/layout';
 
@@ -62,7 +62,7 @@ const CardProducts: FC = () => {
                                 {/* <Meta title="Europe Street beat" description="www.instagram.com" /> */}
                                 <div style={{ marginBottom: 8 }} />
                                 <h2 className='info'>
-                                    <NavLink to={`${process.env.REACT_APP_IMAGE}${product.image_url}/${index}`} className={"nav-click"}>
+                                    <NavLink to={`/products/${product.name}/${product.product_id}`} className={"nav-click"}>
                                         {product?.name}
                                     </NavLink>
                                 </h2>

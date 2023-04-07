@@ -7,7 +7,7 @@ type user = {
     password?: string;
 }
 
-export const login: any = async ( user?: user) => {
+export const apiLogin: any = async ( user?: user) => {
     mainAPI.post(API + "authenticate/login", user)
     .then((res: any) => {
         if (res.ok && res) {
@@ -21,7 +21,7 @@ export const login: any = async ( user?: user) => {
     })
 }
 
-export const logout = async () => {
+export const apiLogout = async () => {
     mainAPI.post(API + "authenticate/logout")
     .then(res => localStorage.removeItem("authToken"))
     .catch((error) => {

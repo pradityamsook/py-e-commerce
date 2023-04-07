@@ -3,7 +3,7 @@ import { FC, useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import '../components/styles/card.css';
+import '../components/view/styles/card.css';
 import { loggedState, productIDState, productListState } from '../state/recoil_state';
 import { deleteProduct, fetchProduct } from '../services/product.service';
 import { useLocalStorage } from 'usehooks-ts';
